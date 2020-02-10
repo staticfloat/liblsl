@@ -190,6 +190,11 @@ else()
 		PUBLIC lslobj
 		PRIVATE lslboost)
 endif()
+
+if (MINGW)
+    target_link_libraries(lsl winmm)
+endif()
+
 target_include_directories(lsl
 	PUBLIC
 		$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>
